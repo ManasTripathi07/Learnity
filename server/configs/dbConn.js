@@ -1,5 +1,4 @@
 import mongoose from "mongoose";
-
 /**
  * mongoose.set("strictQuery", false); sets Mongoose's query strictness to false.
  * This means that Mongoose will not return an error if you try to query for a
@@ -7,6 +6,7 @@ import mongoose from "mongoose";
  * With strict query set to true, Mongoose will return an error if you try to
  * query for a non-existent field.
  */
+
 mongoose.set("strictQuery", false);
 
 const connectToDB = async () => {
