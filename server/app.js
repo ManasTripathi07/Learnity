@@ -13,11 +13,30 @@ const app = express();
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 // Third-Party
+// app.use(
+//   cors({
+//     origin: [process.env.FRONTEND_URL],
+//     // origin: "https://learnity-1.vercel.app",
+//     // origin: "*",
+//     credentials: true,
+//   })
+// );
+
+const allowedOrigins = [
+  "http://localhost:3000", // local dev
+  "https://learnity-1.vercel.app", // production
+  "https://learnity-1-p618fvagl-manastripathi07s-projects.vercel.app", // vercel preview domain
+];
+
 app.use(
   cors({
-    origin: [process.env.FRONTEND_URL],
-    // origin: "https://learnity-1.vercel.app",
-    // origin: "*",
+    origin: function (origin, callback) {
+      if (!origin || allowedOrigins.includes(origin)) {
+        callback(null, true);
+      } else {
+        callback(new Error("Not allowed by CORS"));
+      }
+    },
     credentials: true,
   })
 );
