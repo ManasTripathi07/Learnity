@@ -11,17 +11,17 @@ const app = express();
 // Middlewares
 // Built-In
 app.use(express.json());
-// app.use(express.urlencoded({ extended: true }));
+app.use(express.urlencoded({ extended: true }));
 // Third-Party
 app.use(
   cors({
-    // origin: [process.env.FRONTEND_URL],
+    origin: [process.env.FRONTEND_URL],
     // origin: "https://learnity-1.vercel.app",
-    origin: "*",
+    // origin: "*",
     credentials: true,
   })
 );
-// app.use(morgan('dev'));
+app.use(morgan('dev'));
 app.use(cookieParser());
 
 
