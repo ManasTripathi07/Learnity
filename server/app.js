@@ -22,17 +22,39 @@ app.use(express.urlencoded({ extended: true }));
 //   })
 // );
 
-const allowedOrigins = [
-  "http://localhost:3000", // local dev
-  "https://learnity-1.vercel.app", // production
-  "https://learnity-1-p618fvagl-manastripathi07s-projects.vercel.app", // vercel preview domain
-  "https://learnity-1-iw2ia2cbs-manastripathi07s-projects.vercel.app"
-];
+// const allowedOrigins = [
+//   "http://localhost:3000", // local dev
+//   "https://learnity-1.vercel.app", // production
+//   "https://learnity-1-p618fvagl-manastripathi07s-projects.vercel.app", // vercel preview domain
+//   "https://learnity-1-iw2ia2cbs-manastripathi07s-projects.vercel.app"
+// ];
+
+// app.use(
+//   cors({
+//     origin: function (origin, callback) {
+//       if (!origin || allowedOrigins.includes(origin)) {
+//         callback(null, true);
+//       } else {
+//         callback(new Error("Not allowed by CORS"));
+//       }
+//     },
+//     credentials: true,
+//   })
+// );
+// app.use(morgan('dev'));
+// app.use(cookieParser());
+
 
 app.use(
   cors({
     origin: function (origin, callback) {
-      if (!origin || allowedOrigins.includes(origin)) {
+      const allowed = [
+        "http://localhost:3000",
+        "https://learnity-1.vercel.app",
+      ];
+      const vercelPattern = /^https:\/\/learnity-1-[a-z0-9]+-manastripathi07s-projects\.vercel\.app$/;
+
+      if (!origin || allowed.includes(origin) || vercelPattern.test(origin)) {
         callback(null, true);
       } else {
         callback(new Error("Not allowed by CORS"));
@@ -41,9 +63,10 @@ app.use(
     credentials: true,
   })
 );
+
+
 app.use(morgan('dev'));
 app.use(cookieParser());
-
 
 
 // Import all routes
