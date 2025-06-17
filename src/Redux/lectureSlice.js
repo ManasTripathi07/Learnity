@@ -7,11 +7,21 @@ const initialState = {
 };
 
 // function to get all the lectures
+
+
+
+
 export const getCourseLecture = createAsyncThunk(
   "/course/lecture/get",
   async (courseId) => {
     try {
+      console.log("Inside the try block getCourseLectures");
+  
+
+ 
       const res = axiosInstance.get(`/courses/${courseId}`);
+ 
+
 
       toast.promise(res, {
         loading: "Fetching the lectures...",
@@ -23,6 +33,7 @@ export const getCourseLecture = createAsyncThunk(
       return response.data;
     } catch (error) {
       toast.error(error?.response?.data?.message);
+    
     }
   }
 );

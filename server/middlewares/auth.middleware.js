@@ -42,8 +42,10 @@ export const authorizeRoles = (...roles) =>
 // Middleware to check if user has an active subscription or not
 export const authorizeSubscribers = asyncHandler(async (req, _res, next) => {
   // If user is not admin or does not have an active subscription then error else pass
-  const user = await User.findbyId(req.user.id);
-  if (user.role !== "ADMIN" && user.subscription.status !== "active") {
+  console.log("The req body is ->",req);
+  const user1 = req.user;
+  console.log("The fetched User details are following",user1);
+  if (user1.role !== "ADMIN" && user1.subscription.status !== "active") {
     return next(new AppError("Please subscribe to access this route.", 403));
   }
 

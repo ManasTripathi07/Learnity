@@ -99,7 +99,7 @@ export const getLecturesByCourseId = asyncHandler(async (req, res, next) => {
   const { id } = req.params;
 
   const course = await Course.findById(id);
-
+  
   if (!course) {
     return next(new AppError('Invalid course id or course not found.', 404));
   }
@@ -110,6 +110,8 @@ export const getLecturesByCourseId = asyncHandler(async (req, res, next) => {
     lectures: course.lectures,
   });
 });
+
+
 
 /**
  * @ADD_LECTURE
