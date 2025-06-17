@@ -15,18 +15,32 @@ app.use(express.urlencoded({ extended: true }));
 // Third-Party
 // app.use(
 //   cors({
-//     // origin: [process.env.FRONTEND_URL],
+//     origin: [process.env.FRONTEND_URL],
 //     // origin: "https://learnity-1.vercel.app",
-//     origin: "*",
+//     // origin: "*",
 //     credentials: true,
 //   })
 // );
 
-app.use(cors({
-  origin: '*', 
-}));
+const allowedOrigins = [
+  "http://localhost:3000", // local dev
+  "https://learnity-1.vercel.app", // production
+  "https://learnity-1-p618fvagl-manastripathi07s-projects.vercel.app", // vercel preview domain
+  "https://learnity-1-iw2ia2cbs-manastripathi07s-projects.vercel.app"
+];
 
-
+app.use(
+  cors({
+    origin: function (origin, callback) {
+      if (!origin || allowedOrigins.includes(origin)) {
+        callback(null, true);
+      } else {
+        callback(new Error("Not allowed by CORS"));
+      }
+    },
+    credentials: true,
+  })
+);
 app.use(morgan('dev'));
 app.use(cookieParser());
 
