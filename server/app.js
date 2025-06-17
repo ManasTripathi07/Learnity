@@ -1,12 +1,13 @@
 import cookieParser from 'cookie-parser';
-config();
 import express from 'express';
 import { config } from 'dotenv';
 import cors from 'cors';
 import morgan from 'morgan';
 import errorMiddleware from './middlewares/error.middleware.js';
 
+config();
 const app = express();
+
 
 // Middlewares
 // Built-In
@@ -52,7 +53,8 @@ app.use(
         "http://localhost:3000",
         "https://learnity-1.vercel.app",
       ];
-      const vercelPattern = /^https:\/\/learnity-1-[a-z0-9]+-manastripathi07s-projects\.vercel\.app$/;
+      // const vercelPattern = /^https:\/\/learnity-1-[a-z0-9]+-manastripathi07s-projects\.vercel\.app$/;
+      const vercelPattern = /^https:\/\/learnity-1-[\w-]+-manastripathi07s-projects\.vercel\.app$/;
 
       if (!origin || allowed.includes(origin) || vercelPattern.test(origin)) {
         callback(null, true);
