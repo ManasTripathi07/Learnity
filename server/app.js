@@ -26,6 +26,7 @@ const allowedOrigins = [
   "http://localhost:3000", // local dev
   "https://learnity-1.vercel.app", // production
   "https://learnity-1-p618fvagl-manastripathi07s-projects.vercel.app", // vercel preview domain
+  "https://learnity-1-iw2ia2cbs-manastripathi07s-projects.vercel.app"
 ];
 
 app.use(
