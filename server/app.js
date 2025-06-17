@@ -13,14 +13,18 @@ const app = express();
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 // Third-Party
-app.use(
-  cors({
-    // origin: [process.env.FRONTEND_URL],
-    // origin: "https://learnity-1.vercel.app",
-    origin: "*",
-    credentials: true,
-  })
-);
+// app.use(
+//   cors({
+//     // origin: [process.env.FRONTEND_URL],
+//     // origin: "https://learnity-1.vercel.app",
+//     origin: "*",
+//     credentials: true,
+//   })
+// );
+
+app.use(cors({
+  origin: '*', 
+}));
 
 
 app.use(morgan('dev'));
