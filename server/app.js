@@ -22,7 +22,7 @@ app.use(
   cors({
     origin: [process.env.FRONTEND_URL,"https://learnity-1.vercel.app"] ,
     // origin: "https://learnity-1.vercel.app",
-    // origin: "",
+    
     credentials: true,
   })
 );
@@ -55,9 +55,9 @@ app.use(
 //   cors({
 //     origin: function (origin, callback) {
 //       const allowed = [
-//         // "http://localhost:3000",
-//         // "https://learnity-1.vercel.app",
-//         "*"
+//         "http://localhost:3000",
+//         "https://learnity-1.vercel.app",
+//         // "*"
 //       ];
 //       // const vercelPattern = /^https:\/\/learnity-1-[a-z0-9]+-manastripathi07s-projects\.vercel\.app$/;
 //       const vercelPattern = /^https:\/\/learnity-1-[\w-]+-manastripathi07s-projects\.vercel\.app$/;
