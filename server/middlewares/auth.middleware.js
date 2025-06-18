@@ -6,6 +6,7 @@ import asyncHandler from "./asyncHandler.middleware.js";
 export const isLoggedIn = asyncHandler(async (req, _res, next) => {
   // extracting token from the cookies
   const { token } = req.cookies;
+  
 
   // If no token send unauthorized message
   if (!token) {
@@ -49,7 +50,8 @@ export const authorizeSubscribers = asyncHandler(async (req, _res, next) => {
   //   return next(new AppError("Please subscribe to access this route.", 403));
   // }
 
-  console.log("The req response is ->",req);
+  // console.log("The req response is ->",req);
+  // console.log("req.user.role",req.user.role);
   const user1 = req.user;
 
   if (user1.role !== "ADMIN" && user1.subscription.status !== "active") {

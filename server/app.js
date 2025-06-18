@@ -18,34 +18,48 @@ app.use(express.urlencoded({ extended: true }));
 app.use(morgan('dev'));
 app.use(cookieParser());
 
-app.use(
-  cors({
-    origin: [process.env.FRONTEND_URL,"https://learnity-1.vercel.app"] ,
-    // origin: "https://learnity-1.vercel.app",
-    
-    credentials: true,
-  })
-);
 
-// const allowedOrigins = [
-//   "http://localhost:3000", // local dev
-//   "https://learnity-1.vercel.app", // production
-//   "https://learnity-1-p618fvagl-manastripathi07s-projects.vercel.app", // vercel preview domain
-//   "https://learnity-1-iw2ia2cbs-manastripathi07s-projects.vercel.app"
-// ];
 
 // app.use(
 //   cors({
-//     origin: function (origin, callback) {
-//       if (!origin || allowedOrigins.includes(origin)) {
-//         callback(null, true);
-//       } else {
-//         callback(new Error("Not allowed by CORS"));
-//       }
-//     },
+//     origin: [process.env.FRONTEND_URL,"https://learnity-1.vercel.app"] ,
+//     // origin: "https://learnity-1.vercel.app",
+    
 //     credentials: true,
 //   })
 // );
+
+app.use((req, res, next) => {
+  res.header(
+    "Access-Control-Allow-Origin",
+    "React app URL"
+  );
+  res.header("Access-Control-Allow-Methods", "GET, POST, PUT, DELETE");
+  res.header("Access-Control-Allow-Headers", "Content-Type");
+  next();
+});
+
+
+
+const allowedOrigins = [
+  "http://localhost:3000", // local dev
+  "https://learnity-1.vercel.app", // production
+  "https://learnity-1-p618fvagl-manastripathi07s-projects.vercel.app", // vercel preview domain
+  "https://learnity-1-iw2ia2cbs-manastripathi07s-projects.vercel.app"
+];
+
+app.use(
+  cors({
+    origin: function (origin, callback) {
+      if (!origin || allowedOrigins.includes(origin)) {
+        callback(null, true);
+      } else {
+        callback(new Error("Not allowed by CORS"));
+      }
+    },
+    credentials: true,
+  })
+);
 
 
 
