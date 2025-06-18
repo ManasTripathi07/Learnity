@@ -49,7 +49,7 @@ export const authorizeSubscribers = asyncHandler(async (req, _res, next) => {
   //   return next(new AppError("Please subscribe to access this route.", 403));
   // }
 
-
+  console.log("The req response is ->",req);
   const user1 = req.user;
 
   if (user1.role !== "ADMIN" && user1.subscription.status !== "active") {

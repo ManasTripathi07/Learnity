@@ -14,14 +14,18 @@ const app = express();
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 // Third-Party
-// app.use(
-//   cors({
-//     origin: [process.env.FRONTEND_URL],
-//     // origin: "https://learnity-1.vercel.app",
-//     // origin: "*",
-//     credentials: true,
-//   })
-// );
+
+app.use(morgan('dev'));
+app.use(cookieParser());
+
+app.use(
+  cors({
+    origin: [process.env.FRONTEND_URL,"https://learnity-1.vercel.app"] ,
+    // origin: "https://learnity-1.vercel.app",
+    // origin: "",
+    credentials: true,
+  })
+);
 
 // const allowedOrigins = [
 //   "http://localhost:3000", // local dev
@@ -42,30 +46,31 @@ app.use(express.urlencoded({ extended: true }));
 //     credentials: true,
 //   })
 // );
-// app.use(morgan('dev'));
-// app.use(cookieParser());
 
 
-app.use(
-  cors({
-    origin: function (origin, callback) {
-      const allowed = [
-        // "http://localhost:3000",
-        // "https://learnity-1.vercel.app",
-        "*"
-      ];
-      // const vercelPattern = /^https:\/\/learnity-1-[a-z0-9]+-manastripathi07s-projects\.vercel\.app$/;
-      const vercelPattern = /^https:\/\/learnity-1-[\w-]+-manastripathi07s-projects\.vercel\.app$/;
 
-      if (!origin || allowed.includes(origin) || vercelPattern.test(origin)) {
-        callback(null, true);
-      } else {
-        callback(new Error("Not allowed by CORS"));
-      }
-    },
-    credentials: true,
-  })
-);
+//Working online
+
+// app.use(
+//   cors({
+//     origin: function (origin, callback) {
+//       const allowed = [
+//         // "http://localhost:3000",
+//         // "https://learnity-1.vercel.app",
+//         "*"
+//       ];
+//       // const vercelPattern = /^https:\/\/learnity-1-[a-z0-9]+-manastripathi07s-projects\.vercel\.app$/;
+//       const vercelPattern = /^https:\/\/learnity-1-[\w-]+-manastripathi07s-projects\.vercel\.app$/;
+
+//       if (!origin || allowed.includes(origin) || vercelPattern.test(origin)) {
+//         callback(null, true);
+//       } else {
+//         callback(new Error("Not allowed by CORS"));
+//       }
+//     },
+//     credentials: true,
+//   })
+// );
 
 
 app.use(morgan('dev'));
