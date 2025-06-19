@@ -7,6 +7,7 @@ export const isLoggedIn = asyncHandler(async (req, _res, next) => {
   // extracting token from the cookies
   const { token } = req.cookies;
   
+  console.log("extracted token is ->",token);
 
   // If no token send unauthorized message
   if (!token) {
@@ -16,6 +17,7 @@ export const isLoggedIn = asyncHandler(async (req, _res, next) => {
   // Decoding the token using jwt package verify method
   const decoded = await jwt.verify(token, process.env.JWT_SECRET);
 
+  console.log("decoded messahe is",decoded);
   // If no decode send the message unauthorized
   if (!decoded) {
     return next(new AppError("Unauthorized, please login to continue", 401));
