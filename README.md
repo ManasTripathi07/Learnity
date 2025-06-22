@@ -87,6 +87,23 @@ An instructor can:
 
 ---
 
+## 📷 Interface Snapshots
+
+![1](https://github.com/user-attachments/assets/f99a49d0-15cd-4df8-b2f3-299e7768ade5)
+![2](https://github.com/user-attachments/assets/dd0a2cf6-704a-4e25-8cc3-8350913d54d5)
+![3](https://github.com/user-attachments/assets/82d02b78-e085-4123-bc6c-e18834aabaf9)
+![4](https://github.com/user-attachments/assets/ff626ba5-d20b-41a4-be83-d119568e962a)
+![5](https://github.com/user-attachments/assets/a0d85dce-b7be-417b-9bfb-cb6ef29d3d3d)
+![6](https://github.com/user-attachments/assets/79cca55c-0549-425b-bb2e-ca35602107d7)
+![7](https://github.com/user-attachments/assets/723c2142-61a8-4248-b33c-ce2426f05149)
+![8](https://github.com/user-attachments/assets/b676ca65-63a9-4b37-a94a-a505f696ea20)
+![9](https://github.com/user-attachments/assets/931e22e3-ba75-455e-abe8-29def45ad278)
+![10](https://github.com/user-attachments/assets/3da5ad53-d99d-469c-900d-d50ae8f28ed9)
+![11](https://github.com/user-attachments/assets/f6a48708-336a-44d7-b8cc-8c0997d3ee62)
+![12](https://github.com/user-attachments/assets/30c32ea7-4288-41a1-ad59-9cb77fd26a37)
+![13](https://github.com/user-attachments/assets/edaf5612-00bd-42eb-adc5-96ff51e376f2)
+
+
 ## 🚧 Setup Instructions
 
 ### 🔗 Clone Repo
